@@ -70,7 +70,7 @@ function spawnEnemy(){
 
 function mouseDragged(){
     if(gameState!== "launched"){
-        
+        Matter.Body.setPosition(player.body, {x:mouseX, y:mouseY});
         Matter.Body.setVelocity(player.body, {x: 0, y: -5});
     }
 
@@ -83,15 +83,15 @@ function mouseReleased(){
     gameState = "launched";
 }
 
-/*function keyPressed(){
+function keyPressed(){
     //console.log(player.body.speed);
     if(keyCode === 32 && (player.body.speed<1 || player.body.position.x> 1200 || player.body.position.y<0)){
         player.body.velocity.x = 0;
         //player.trajectory=[]
        slingshot.attach(player.body);
-       //Matter.Body.setPosition(player.body, {x:width/2, y:height-150});
+       Matter.Body.setPosition(player.body, {x:width/2, y:height-150});
        
        gameState = "onSling";
 
     }
-}*/
+}
